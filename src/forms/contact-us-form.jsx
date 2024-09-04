@@ -2,7 +2,7 @@ import React from "react";
 import NiceSelect from "../ui/nice-select";
 
 const ContactUsForm = () => {
-  const selectHandler = (e) => {};
+  const selectHandler = (e) => { };
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()} className="box">
@@ -29,12 +29,12 @@ const ContactUsForm = () => {
             <div className="postbox__select mb-30">
               <NiceSelect
                 options={[
-                  { value: "Your Inquiry about", text: "Your Inquiry about" },
-                  { value: "01 Year", text: "01 Year" },
-                  { value: "02 Year", text: "02 Year" },
-                  { value: "03 Year", text: "03 Year" },
-                  { value: "04 Year", text: "04 Year" },
-                  { value: "05 Year", text: "05 Year" },
+                  { value: "general", text: "General Inquiry" },
+                  { value: "technical_support", text: "Technical Support" },
+                  { value: "service_requests", text: "Service Requests" },
+                  { value: "consultation", text: "Consultation Requests" },
+                  { value: "partnership", text: "Partnership Opportunities" },
+                  { value: "feedback", text: "Feedback and Suggestions" },
                 ]}
                 defaultCurrent={0}
                 onChange={selectHandler}

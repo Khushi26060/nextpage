@@ -11,10 +11,10 @@ import ServicesArea from "../home/services-area";
 import CtaArea from "../../contact/cta-area";
 
 
-const HomeOne = () => {
+const HomeOne = ({data}) => {
 	return (
 		<>
-			<HeaderThree />
+			<HeaderThree data={data}  />
 			<HeroArea />
 			<FeatureArea />
 			<ProjectArea />
@@ -23,7 +23,7 @@ const HomeOne = () => {
 			<TestimonialArea />
 			<BlogArea />
 			<CtaArea />
-			<FooterFive style_contact={true} style_team={true} />
+			<FooterFive  data={data} style_contact={true} style_team={true} />
 
 		</>
 	);

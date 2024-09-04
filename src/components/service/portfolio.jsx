@@ -11,13 +11,13 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const service_content = {
    title: <>Accounting Software <br /> That Handles it All.</>,
-   btn_text: <>See All Features</>,
+   btn_text: <>get in touch</>,
    bg_img: "/assets/img/service/service-3-bg.png",
    service_title: "CRM Management",
    service_info: <>Generate, Manage, and Convert leads <br /> into Customers. Automatically</>,
 };
 
-const ServiceArea = () => {
+const PortFolio = () => {
    const [serviceData, setServiceData] = useState([]);
    const router = useRouter();
 
@@ -26,7 +26,6 @@ const ServiceArea = () => {
          try {
             const response = await axios.get(`${baseUrl}/services`);
             setServiceData(response.data);
-            console.log("service data ----->>>> ", response.data);
          } catch (error) {
             console.error('Error fetching data:', error);
          }
@@ -46,7 +45,7 @@ const ServiceArea = () => {
                            className="tp-btn-inner tp-btn-hover alt-color-black wow tpfadeRight"
                            data-wow-duration=".9s"
                            data-wow-delay=".3s"
-                           href="/service-details"
+                           href="/contact"
                         >
                            <span>{service_content.btn_text}</span>
                            <b></b>
@@ -66,11 +65,11 @@ const ServiceArea = () => {
                         <div className="tp-service-3-content">
                            <span>{service_content.service_title}</span>
                            <h4 className="tp-service-3-title-sm">
-                              <Link href="/service-details">{service_content.service_info}</Link>
+                              <Link href="/service">{service_content.service_info}</Link>
                            </h4>
                         </div>
                         <div className="tp-service-3-btn">
-                           <Link className="tp-btn-white-solid" href="/service-details">
+                           <Link className="tp-btn-white-solid" href="/service">
                               Learn More
                            </Link>
                         </div>
@@ -80,7 +79,7 @@ const ServiceArea = () => {
                      </div>
                   </div>
 
-                  {serviceData.slice(0, 15).map((item, i) => (
+                  {serviceData.map((item, i) => (
                      <div
                         key={i}
                         className="col-xl-4 col-lg-6 col-md-6 wow tpfadeUp"
@@ -102,7 +101,9 @@ const ServiceArea = () => {
                            <div className="tp-service-sm-content">
                               <span>{item.category}</span>
                               <h3 className="tp-service-sm-title">
-                                 <Link href={`/service-details/${item._id}`}>{item.title}</Link>
+                                 <Link href={`/service-details/${item._id}`}>{item.title.slice(0, 15) + "..."}</Link>
+                                 <p>{item.description.slice(0, 40) + "..."}</p>
+
                               </h3>
                               <div className="tp-service-sm-link">
                                  <Link href={`/service-details/${item._id}`}>
@@ -120,4 +121,4 @@ const ServiceArea = () => {
    );
 };
 
-export default ServiceArea;
+export default PortFolio;

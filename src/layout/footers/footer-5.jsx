@@ -27,7 +27,7 @@ const footer_content = {
          title: "Services",
          delay: ".7s",
          links: [
-            { name: "Damo page", link: "#" },
+            { name: "Damo page", link: "/service" },
             { name: "project", link: "/project" },
             { name: "Team", link: "/team" },
             { name: "Careers", link: "/career" },
@@ -43,8 +43,9 @@ const footer_content = {
             { name: "Contact", link: "/contact" },
             { name: "About", link: "/about" },
             // { name: "Features", link: "#" },
-            { name: "privacy & policy", link: "/privacy" }, // Updated link
-            { name: "terms & conditions", link: "/terms" }, // Updated link
+            { name: "privacy & policy", link: "/privacy-policy" }, 
+            { name: "terms & conditions", link: "/terms-and-conditions" },  
+            { name: "refund-policy", link: "/refund-policy" },
          ]
       },
 

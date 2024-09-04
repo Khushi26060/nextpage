@@ -40,19 +40,26 @@ const about_data =[
 
 // about content
 const about_content = {
-    title: "OVER 150K+ CLIENT",
-    sub_title: "We Offer Real Time Data Solutions", 
-    des: <>Excepteur sint occaecat cupidatat officia non proident <br />
-    sunt in culpa qui deserunt.!</>,
-
+    title: "OVER 150K+ CLIENTS",
+    sub_title: "We Offer Real-Time Data Solutions",
+    des: (
+        <>
+            At CodecafeLab, our mission is to revolutionize the way businesses leverage data. With a client base exceeding 150,000, we have established ourselves as a leading provider of real-time data solutions that drive business intelligence and operational excellence. Our cutting-edge technology and expertise enable us to deliver insights that are not only timely but also actionable. We specialize in transforming complex data sets into clear, understandable reports and visualizations that support strategic decision-making and enhance overall performance. Whether you’re looking to optimize your digital presence, streamline operations, or gain a competitive edge, our solutions are designed to help you achieve your goals with precision and efficiency.
+        </>
+    ),
     about_list: [
-        <>Various analysis options.</>,
-        <>Page Load (time, size, number of requests).</>,
-        <> Big data analysis.</>,
+        <>**Comprehensive Data Analysis**: Our solutions offer a wide range of analysis options, including trend analysis, anomaly detection, and performance metrics, tailored to address your specific business needs.</>,
+        <>**Page Load Analysis**: We provide in-depth insights into page load times, sizes, and request counts, helping you optimize website performance for a better user experience and faster loading times.</>,
+        <>**Advanced Big Data Analysis**: Our big data solutions are designed to handle and interpret vast amounts of data, enabling you to uncover hidden patterns, make data-driven decisions, and enhance operational efficiency.</>,
+        <>**Real-Time Data Monitoring**: Stay ahead with our real-time data monitoring services, which offer continuous updates and alerts, ensuring you’re always informed about critical metrics and changes affecting your business.</>,
+        <>**Customizable Dashboards and Reporting**: We create user-friendly dashboards and reports that present complex data in an easily digestible format, allowing for quick insights and informed decision-making.</>,
+        <>**Scalable Solutions**: Our technology is built to scale with your business, providing the flexibility to adapt to growing data volumes and evolving business requirements without compromising performance.</>,
+        <>**Expert Consulting and Support**: Beyond our data solutions, we offer expert consulting services to help you implement and maximize the value of our technology, ensuring that your data strategy aligns with your business objectives.</>,
+        <>**Data Security and Compliance**: We prioritize data security and ensure our solutions comply with industry standards and regulations, protecting your valuable information and maintaining your trust.</>,
     ],
     btn_text: "About Us",
+};
 
-}
 const {title, sub_title, des, about_list, btn_text}  = about_content
 
 

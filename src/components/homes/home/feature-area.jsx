@@ -20,7 +20,7 @@ const FeatureArea = ({ style_integraton }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${baseUrl}/products`);
+                const response = await axios.get(`${baseUrl}/services`);
                 setFeatureData(response.data);
             } catch (error) {
                 console.error("Error fetching data", error);
@@ -53,21 +53,24 @@ const FeatureArea = ({ style_integraton }) => {
                     </div>
                 </div>
                 <div className="row gx-0 tp-feature-five-wrapper-main">
-                    {featureData.map((item, i) => (
-                        <div key={i} className="col-xl-3 col-lg-6 col-md-6">
+                    {featureData.slice(0, 4).map((item, i) => (
+                        <div key={i} className="col-xl-3 col-lg-6 col-md-6 px-2 rounded">
                             <div className="tp-feature-five-wrapper">
                                 <div className={`tp-feature-five-item tp-feature-five-item-${item.name} text-center z-index`}>
                                     <div className="tp-feature-five-icon p-relative">
-                                        <Image src={`${baseUrl}${item.image}`} alt="theme-pure" width={100} height={100} />
+                                        <Image style={{ borderRadius: "100%" }} src={`${baseUrl}${item.image}`} alt="themepure" width={100} height={100} />
                                         <div className={`tp-feature-five-shape-color tp-feature-five-shape-color-${item.color}`}></div>
                                     </div>
                                     <div className="tp-feature-five-content">
-                                        <h4 className="tp-feature-five-title-sm">{item.title}</h4>
-                                        <p>{item.description}</p>
+                                        <h4 className="tp-feature-five-title-sm">{item.title.slice(0, 15) + "..."}</h4>
+                                        <p>{item.description.slice(0, 40) + "..."}</p>
                                     </div>
                                     <div className="tp-feature-five-btn">
-                                        <Link className="tp-btn-purple" href="/service-details">Learn More</Link>
+                                        <Link className="tp-btn-purple" href={`/service-details/${item._id}`}>Learn More</Link>
                                     </div>
+                                    {/* <div className="portfolio-filter p-2 masonary-menu text-center border rounded mb-3 mt-4">
+                                        <span>{item.category}</span>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -76,7 +79,7 @@ const FeatureArea = ({ style_integraton }) => {
                 <div className="row">
                     <div className="col-12">
                         <div className="tp-feature-five-link text-center">
-                            <span>Check out all of our <Link href="/service-details">All features</Link></span>
+                            <span>Check out all of our <Link href="/service">All Services</Link></span>
                         </div>
                     </div>
                 </div>

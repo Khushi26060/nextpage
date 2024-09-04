@@ -5,7 +5,7 @@ import BreadcrumbEight from "@/common/breadcrumbs/breadcrumb-8";
 import FooterFive from "@/layout/footers/footer-5";
 import HeaderSix from "@/layout/headers/header-6";
 import ThumbArea from "./thumb-area";
-import ProjectArea from "../homes/home/project-area";
+import Testenomial from "../homes/home/project-area";
 import ProjectDetailsArea from "./project-details-area";
 
 
@@ -44,7 +44,7 @@ const ProjectDetails = () => {
             <BreadcrumbEight /> 
             {/* <ThumbArea projectData={projectData} /> */}
             <ProjectDetailsArea projectData={projectData} />
-            <ProjectArea />
+            <Testenomial />
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>

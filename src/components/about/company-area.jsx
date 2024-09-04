@@ -1,13 +1,14 @@
 import VideoPopup from '@/modals/video-popup';
 import React,{useState} from 'react';
 
-const company_content ={
-    sub_title:  "ABOUT THE COMPANY",
-    title: <>Softuch is Made <br />For the Creator.</>,
-    info_1: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum arcu sollicitudin viverra sit elit leo in. Vitae eu tellus mattis quis. Eu, tempus donec nam mauris egestas. Id aliquet ultricies ligula tellus arcu dolor. Massa arcu pulvinar in mattis</>,
-    info_2: <>Feugiat purus congue risus, blandit a sed. In aenean quam aenean purus dictum pellentesque consequat.!</>,
-    info_3: <>Our clean and simple APIs and transparent SaaS model will give you complete peace of mind.</>,
-}
+const company_content = {
+   sub_title: "ABOUT THE COMPANY",
+   title: <>CodecafeLab: Empowering Businesses <br /> with Innovative IT Solutions.</>,
+   info_1: <>At CodecafeLab, we are dedicated to transforming the IT landscape through innovative solutions designed to meet the evolving needs of modern businesses. Our team of experts leverages cutting-edge technology and industry best practices to deliver high-quality services that drive success and growth. From custom software development to comprehensive IT consulting, we are committed to providing tailored solutions that enhance operational efficiency and deliver exceptional value.</>,
+   info_2: <>With a client-centric approach, we prioritize understanding your unique challenges and goals to offer solutions that are both effective and scalable. Our transparent and collaborative process ensures that you are informed and involved every step of the way, leading to successful outcomes and long-term partnerships.</>,
+   info_3: <>Our commitment to excellence extends to every aspect of our service, from the reliability of our solutions to the quality of our customer support. By combining technical expertise with a deep understanding of your business needs, we provide peace of mind and a foundation for sustainable growth. Explore how CodecafeLab can help you achieve your IT objectives and drive your business forward.</>,
+};
+
 const {sub_title, title, info_1, info_2, info_3}  = company_content
 
 

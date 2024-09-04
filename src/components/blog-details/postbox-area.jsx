@@ -17,7 +17,7 @@ const PostboxArea = ({ blogData }) => {
     image,
     author,
     category,
-    // Add more attributes as needed from your blogData
+ 
   } = blogData;
 
   return (

@@ -1,97 +1,161 @@
-import useTitleAnimation from '@/hooks/useTitleAnimation';
+import project_data from '@/data/project-data';
 import RightArrow from '@/svg/right-arrow';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef, useState, useEffect } from 'react';
-import img from "../../../../public/assets/img/service/sv-dashbord.png";
+import React, { useEffect, useState } from 'react';
+import { Navigation, Scrollbar } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import styles from './styles.module.css'; // Import the CSS module
 import axios from 'axios';
 
+const setting = {
+    loop: true,
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 30,
+    breakpoints: {
+        '1200': {
+            slidesPerView: 3,
+        },
+        '992': {
+            slidesPerView: 1,
+        },
+        '768': {
+            slidesPerView: 1,
+        },
+        '576': {
+            slidesPerView: 1,
+        },
+        '0': {
+            slidesPerView: 1,
+        },
+    },
+
+    scrollbar: {
+        el: ".tp-scrollbar",
+        clickable: true,
+    },
+}
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-// console.log("local url", baseUrl)
-const service_content = {
-    title: "Browse our portfolio",
-    sub_title: <>Explore our diverse range of projects
-        showcasing our commitment to excellence
-        and innovation. See how we've helped brands
-        achieve their goals with creative solutions
-        and cutting-edge technology.</>,
-    bg_img: "/assets/img/service/sv-bg.jpg",
-    title_2: <>Data Analysis <br /> Tools & Methods</>,
-    des: <>Lorem Ipsum is simply dummy text <br /> of the printing</>,
-    btn_text: "Work with Us",
-};
-const { title, sub_title, bg_img, title_2, des, btn_text } = service_content;
 
-const ServicesArea = () => {
-    const [serviceData, setServiceData] = useState([]);
-    const titleRef = useRef(null);
+console.log("BASEURL =====>", baseUrl)
 
-    useTitleAnimation(titleRef);
+
+const Temtenomial = () => {
+    const [isDragged, setIsDragged] = useState(false);
+    const [projectData, setProjectData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${baseUrl}/services`);
-                setServiceData(response.data);
-                console.log(response.data);
+                setProjectData(response.data)
+                console.log("print project data", response.data)
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error("Error fetching data", error)
             }
-        };
-        fetchData();
-    }, []);
+        }
+        fetchData()
+    }, [])
+
+    const handleSlideChange = () => {
+        setIsDragged(true);
+    };
+
+    const handleTransitionEnd = () => {
+        setIsDragged(false);
+    };
+
+    const truncateText = (text, maxLength = 100) => {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + "...";
+        }
+        return text;
+    };
 
     return (
         <>
-            <div className="tp-service__area p-relative fix">
-                <div className="tp-service__grey-shape grey-bg"></div>
+            <div className="tp-project__area grey-bg pt-50 pb-110 fix">
                 <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                            <div ref={titleRef} className="tp-service__section-box tp__title_anime mb-50 text-center tp-title-anim">
-                                <h2 className="tp-section-title">{title}</h2>
-                                <p>{sub_title}</p>
+                    <div className="row">
+                        <div className="col-xl-12">
+                            <div className="tp-project__section-box wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".3s">
+                                <h3 className="tp-section-title">Explore the endless digital
+                                    opportunities for your brand with our full
+                                    range of solutions.
+                                </h3>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        {serviceData.slice(0, 5).map((item, i) =>
-                            <div key={i} className="col-xl-4 col-lg-4 col-md-6 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay={item.delay}>
-                                <div className="tp-service__item mb-30">
-                                    <div style={{ maxWidth: '100%', height: '150px', overflow: 'hidden', borderRadius:"10px" }} className="tp-service__icon">
-                                        <Image src={`${baseUrl}${item.image}`} alt="theme-pure" width={300} height={80} />
-                                    </div>
-                                    <div className="tp-service____title-box">
-                                        <p>{item.name}</p>
-                                    </div>
-                                    <div className="tp-service__content">
-                                        <h3 className="tp-service__title-sm tp-yellow-color"><Link href="/service-details">{item.title}</Link></h3>
-                                        <p>{item.description}</p>
-                                    </div>
-                                    <div className="tp-service__link">
-                                        <Link href="/service-details">
-                                            <RightArrow />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                </div>
+                <div className="container-fluid gx-0">
+                    <div className="row gx-0">
+                        <div className="col-xl-12">
+                            <div className="tp-project__slider-section">
+                                <Swiper
+                                    {...setting}
+                                    onSliderMove={handleSlideChange}
+                                    onTransitionEnd={handleTransitionEnd}
+                                    modules={[Navigation, Scrollbar]}
+                                    className={`swiper-container tp-project__slider-active ${isDragged ? "dragged" : ""
+                                        }`}>
+                                    {projectData.map((item, i) =>
+                                        <SwiperSlide
+                                            key={i}
+                                            className="swiper-slide wow tpfadeUp"
+                                            data-wow-duration=".9s"
+                                            data-wow-delay=".5s"
+                                        >
+                                            <div className="tp-project__slider-wrapper">
+                                                <div className="tp-project__item d-flex align-items-center">
+                                                    <Link href={`/project-details/${item._id}`}>
+                                                        <div className="tp-project__thumb">
+                                                            <Image
+                                                                src={`${baseUrl}${item.image}`}
+                                                                alt="theme-pure"
+                                                                className={styles.imgResponsive}
+                                                                layout="fixed"
+                                                                width={500}
+                                                                height={300}
+                                                            />
+                                                        </div>
+                                                    </Link>
 
-                        <div className="col-xl-4 col-lg-4 col-md-6 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1s">
-                            <div className="tp-service__dashboard"
-                                style={{ backgroundImage: `url(${bg_img})` }} >
-                                <div className="tp-service__top-content">
-                                    <h3 className="tp-service__title-white">{title_2}</h3>
-                                    <p>{des}</p>
-                                    <Link className="tp-btn-orange tp-btn-hover alt-color-white" href="/project-details">
-                                        <span>{btn_text}</span>
-                                        <b></b>
-                                    </Link>
-                                </div>
-                                <div className="tp-service__dashdboard-sm-img">
-                                    <Image className="wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s"
-                                        src={img} alt="theme-pure" />
-                                </div>
+                                                    <div className="tp-project__content">
+                                                        <div className="tp-project__brand-icon">
+                                                            <p>{item.name}</p>
+                                                        </div>
+                                                        <div className="tp-project__title-box">
+                                                            <h4 className="tp-project__title-sm">
+                                                                <Link href={`/project-details/${item._id}`}>{item.title.slice(0,20)+'...'}</Link>
+                                                            </h4>
+                                                            <p className="tp-project__description">
+                                                                {truncateText(item.description, 150)}
+                                                                {item.description.length > 150 && (
+                                                                    <Link href={`/project-details/${item._id}`}>
+                                                                        Learn more...
+                                                                    </Link>
+                                                                )}
+                                                            </p>
+                                                        </div>
+                                                        <div className="tp-project__meta d-flex align-items-center">
+                                                            <div className="tp-blog-category category-color-1">
+                                                                <span>{item.category}</span>
+                                                            </div>
+                                                            <div className="tp-project__link">
+                                                                <Link href={`/project-details/${item._id}`}>
+                                                                    <RightArrow />
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    )}
+                                </Swiper>
+                                <div className="tp-scrollbar"></div>
                             </div>
                         </div>
                     </div>
@@ -101,4 +165,4 @@ const ServicesArea = () => {
     );
 };
 
-export default ServicesArea;
+export default Temtenomial;

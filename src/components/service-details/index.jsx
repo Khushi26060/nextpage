@@ -6,6 +6,7 @@ import TestimonialArea from "@/common/testimonial-area";
 import FooterFive from "@/layout/footers/footer-5";
 import HeaderSix from "@/layout/headers/header-6";
 import ServiceDetailsArea from "./service-details-area";
+import Testenomial from "../homes/home/services-area"
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -31,18 +32,18 @@ const ServiceDetails = () => {
 
   return (
     <>
- 
+
       <HeaderSix />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <BreadcrumbTwo title={serviceData?.name || "Loading..."} innertitle={serviceData?.title || "Loading..."} />
+            <BreadcrumbTwo name={serviceData?.name || "Loading..."} innertitle={serviceData?.title || "Loading..."} />
             {serviceData ? (
               <ServiceDetailsArea serviceData={serviceData} />
             ) : (
-              <p>Loading service details...</p>
+              " "
             )}
-            <TestimonialArea />
+            <Testenomial />
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>

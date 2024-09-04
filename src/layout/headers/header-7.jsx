@@ -58,7 +58,7 @@ const HeaderSeven = () => {
                                     </Link>
                                 </div>
                                 <div className="header-bottom__btn d-flex align-items-center">
-                                    <Link className="tp-btn-yellow d-none d-md-inline-block inner-color" href="#">Get in Touch</Link>
+                                    <Link className="tp-btn-yellow d-none d-md-inline-block inner-color" href="/contact">Get in Touch</Link>
                                     <a className="header-bottom__bar tp-menu-bar d-lg-none"><i className="fal fa-bars"></i></a>
                                 </div>
                             </div>

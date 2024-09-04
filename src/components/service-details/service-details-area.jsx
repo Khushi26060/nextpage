@@ -43,16 +43,16 @@ const ServiceDetailsArea = ({ serviceData }) => {
                         <div className="tp-service__dashboard mb-30" style={{ backgroundImage: `url(/assets/img/service/sv-bg.jpg)` }}>
                            <div className="tp-service__top-content">
                               <h3 className="tp-service__title-white">{category}</h3>
-                              <p>{description}</p>
-                              <Link className="tp-btn-orange tp-btn-hover alt-color-white" href="#">
-                                 <span>Work with Us</span>
+                              <p>{title}</p>
+                              <Link className="tp-btn-orange tp-btn-hover alt-color-white" href="/contact">
+                                 <span>get in touch</span>
                                  <b></b>
                               </Link>
                            </div>
 
                         </div>
 
-                        <div className="sv-details-social-box mb-30">
+                        {/* <div className="sv-details-social-box mb-30">
                            <h4 className="sv-details-title-sm">Share it.</h4>
                            <div className="sv-details-social-link">
                               <Link href="#"><i className="fab fa-facebook-f"></i></Link>
@@ -60,7 +60,7 @@ const ServiceDetailsArea = ({ serviceData }) => {
                               <Link href="#"><i className="fab fa-instagram"></i></Link>
                               <Link href="#"><i className="fab fa-youtube"></i></Link>
                            </div>
-                        </div>
+                        </div> */}
 
                      </div>
                   </div>
@@ -82,16 +82,7 @@ const ServiceDetailsArea = ({ serviceData }) => {
                            <h4 className="sv-details-text-title">The Challenge</h4>
                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, orci at dapibus, massa ante pharetra tellus. Maecenas interdum, orci at euismod dapibus. Lorem ipsum dolor sit amet.!</p>
                         </div>
-                        <div className="tp-faq-area pt-50">
-                           <div className="container p-0">
-                              <div className="row g-0">
-                                 <div className="col-xl-12">
-                                    <h4 className="sv-details-title">Any Questions find here.</h4>
-                                    <AnswerQuestion style={true} />
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                         
                      </div>
                   </div>
                </div>

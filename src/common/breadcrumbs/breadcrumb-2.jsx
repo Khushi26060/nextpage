@@ -5,18 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 
-import shape_1  from "../../../public/assets/img/breadcrumb/breadcrumb-shape-1.png";
-import shape_2  from "../../../public/assets/img/breadcrumb/breadcrumb-shape-2.png";
-import shape_3  from "../../../public/assets/img/breadcrumb/breadcrumb-3.png";
-import shape_4  from "../../../public/assets/img/breadcrumb/breadcrumb-sub-1.png";
- 
+import shape_1 from "../../../public/assets/img/breadcrumb/breadcrumb-shape-1.png";
+import shape_2 from "../../../public/assets/img/breadcrumb/breadcrumb-shape-2.png";
+import shape_3 from "../../../public/assets/img/breadcrumb/breadcrumb-3.png";
+import shape_4 from "../../../public/assets/img/breadcrumb/breadcrumb-sub-1.png";
 
 
-const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
+
+const BreadcrumbTwo = ({ name, innertitle, team_details, career_details }) => {
   const { animeRef } = useBreadcrumbTitleAnime();
   let subtitleRef = useRef(null)
 
- useTitleAnimation(subtitleRef)
+  useTitleAnimation(subtitleRef)
   return (
     <>
       <div className="breadcrumb__area breadcrumb-height p-relative blue-bg-2">
@@ -34,7 +34,7 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
                   ref={animeRef}
                   className="breadcrumb__title tp-char-animation anime_text"
                 >
-                  {title}
+                  {name}
                 </h3>
                 <div ref={subtitleRef} className="breadcrumb__list tp-title-anim tp__title_anime">
                   <span className="child-one">
@@ -43,29 +43,34 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
                   <span className="dvdr">
                     <i className="fal fa-angle-right"></i>
                   </span>
+                  <span className="child-one">
+                    <Link href="/service">service</Link>
+                  </span>
+                  <span className="dvdr">
+                    <i className="fal fa-angle-right"></i>
+                  </span>
                   <span
-                    className={`${team_details && "child-one"} ${
-                      career_details && "child-one"
-                    }`}
+                    className={`${team_details && "child-one"} ${career_details && "child-one"
+                      }`}
                   >
                     {innertitle}
                   </span>
-                  {team_details && (
+                  {/* {team_details && (
                     <>
                       <span className="dvdr">
                         <i className="fal fa-angle-right"></i>
                       </span>
                       <span>Imdat Cimsit</span>
                     </>
-                  )}
-                  {career_details && (
+                  )} */}
+                  {/* {career_details && (
                     <>
                       <span className="dvdr">
                         <i className="fal fa-angle-right"></i>
                       </span>
                       <span>Team Member</span>
                     </>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

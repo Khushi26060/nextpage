@@ -29,7 +29,13 @@ const hero_content = {
 const { title_1, title_2, info, btn_1, btn_2 } = hero_content
 
 const HeroArea = () => {
-
+   useEffect(() => {
+       if (window.HubSpotConversations) {
+         window.HubSpotConversations.widget.open();
+      } else {
+          console.log("HubSpot script not yet loaded.");
+      }
+   }, []);
    let info_anim = useRef(null)
 
    useIsomorphicLayoutEffect(() => {

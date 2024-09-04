@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+const nextConfig = { 
   reactStrictMode: true,
   images: {
-    domains: ['localhost'], // Add your domain(s) here
+    domains: ['api.thecodecafelab.com'], 
   },
 };
 
