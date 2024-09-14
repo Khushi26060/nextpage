@@ -6,15 +6,17 @@ import PhoneTwo from '@/svg/phone-2';
 import RightArrow from '@/svg/right-arrow';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+
 import Slider from 'react-slick';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import footer_logo from "../../../public/assets/img/logo/logo-black.png";
 
 const footer_content = {
    bg_img: "/assets/img/footer/overly.png",
    title: <>Get Early Access to CodeCafe Lab. <br /> <span>Sip a coffee with Codecafelab and grow. </span></>,
-   btn_text: "Get A Call ",
+   // btn_text: "Get A Call ",
    phone: "+806(000)8899",
    email: "contact@info.com",
    description: <>Build a modern and creative website with crealand</>,
@@ -132,7 +134,37 @@ const setting = {
    ]
 }
 
-const FooterFive = () => {
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+const FooterFive = () => 
+  
+{
+
+      const [email, setEmail] = useState('');
+      const [loading, setLoading] = useState(false);
+      const [error, setError] = useState(null);
+      const [success, setSuccess] = useState(false);
+  
+      const handleSubmit = async (e) => {
+          e.preventDefault();
+          setLoading(true);
+          setError(null); // Clear previous errors
+          setSuccess(false); // Reset success message
+  
+          try {
+              const response = await axios.post(`${baseUrl}/newsletter`, { email });
+              console.log('Newsletter created:', response.data);
+              setEmail(''); // Clear the email input field
+              setSuccess(true); // Set success message
+          } catch (error) {
+              setError('Error submitting email. Please try again.');
+              console.error('Error submitting newsletter:', error);
+          } finally {
+              setLoading(false);
+          }
+      };
+   
+  
    return (
       <>
          <div className="footer-bottom-content tp-browser-bg-shape"
@@ -234,8 +266,8 @@ const FooterFive = () => {
                               <div className="tp-footer__widget footer-widget-3 footer-col-3-4">
                                  <h4 className="tp-footer__widget-title">Our Newsletter</h4>
                                  <div className="tp-footer__input mb-35 p-relative">
-                                    <form onSubmit={(e) => e.preventDefault()}>
-                                       <input type="text" placeholder="Business email adress" />
+                                    <form onSubmit={handleSubmit}>
+                                       <input type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="Business email adress" />
                                        <span>
                                           <EmailIcon />
                                        </span>

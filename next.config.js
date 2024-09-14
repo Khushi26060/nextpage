@@ -5,5 +5,11 @@ const nextConfig = {
     domains: ['api.thecodecafelab.com'], 
   },
 };
+module.exports = {
+  images: {
+    domains: ['localhost'],
+  },
+};
 
-module.exports = nextConfig;
+
+// module.exports = nextConfig;
