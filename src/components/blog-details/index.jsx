@@ -13,6 +13,7 @@ const BlogDetails = () => {
   const router = useRouter();
   const { id } = router.query;
   const [blogData, setBlogData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (id) {
@@ -22,14 +23,19 @@ const BlogDetails = () => {
           setBlogData(response.data);
         } catch (error) {
           console.error('Error fetching blog data:', error);
+          setError('Failed to load blog details.');
         }
       };
       fetchBlogData();
     }
   }, [id]);
 
+  if (error) {
+    return <p>{error}</p>; // Display error message
+  }
+
   if (!blogData) {
-    return <p>Loading...</p>;
+    return <p>Loading...</p>; // Display loading message
   }
 
   return (
@@ -40,7 +46,7 @@ const BlogDetails = () => {
           <main>
             <BreadcrumbSix />
             <Banner />
-            <PostboxArea blogData={blogData} /> {/* Pass the blogData instead of just blogId */}
+            <PostboxArea blogData={blogData} /> {/* Pass the blogData */}
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>
