@@ -14,6 +14,8 @@ import shape_4 from "../../../public/assets/img/login/login-3.png";
 import shape_5 from "../../../public/assets/img/login/login-4.png";
 
 
+
+
 const register_content = {
    bg_img: "/assets/img/login/login-bg-shape.png",
    banner_title: <>Welcome To <br /> Your Softec System.</>, 
@@ -62,13 +64,14 @@ const RegisterArea = () => {
                               <GoogleIcon />
                               Continue with Google
                            </Link>
-                           <Link href="#"> 
+                           <Link href="#" 
+                          > 
                               <AppleIcon />
                            </Link>
                         </div>
                         <div className="signin-banner-from-box">
                            <h5 className="signin-banner-from-subtitle">Or Sign In with email</h5>
-                           <RegisterForm />  
+                           <RegisterForm/>  
                         </div>
                      </div>
                   </div>

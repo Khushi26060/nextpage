@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { 
+const nextConfig = {
+  // output: 'export',
   reactStrictMode: true,
   images: {
     domains: ['api.thecodecafelab.com'], 
@@ -7,3 +8,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+ 

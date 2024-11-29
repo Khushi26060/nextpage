@@ -32,7 +32,7 @@ const HeaderThree = () => {
                      <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
                         <div className="header-bottom__right d-flex align-items-center justify-content-end">
                            <div className="header-bottom__action">
-                              <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
+                              <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/login">
                                  <span>Log In</span>
                               </Link>
                            </div>

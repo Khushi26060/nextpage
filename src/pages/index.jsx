@@ -11,8 +11,7 @@ export async function getStaticProps() {
   try {
     const res = await fetch(`${baseUrl}/business-detail`);
     const data = await res.json();
-    // console.log("business data", data)
-
+   
     return {
       props: { data },
       revalidate: 60, // Optional: Revalidate every 60 seconds

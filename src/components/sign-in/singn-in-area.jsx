@@ -1,4 +1,4 @@
-import LogingForm from '@/forms/loging-form';
+import LogingForm from '@/forms/login-form';
 import AppleIcon from '@/svg/apple-icon';
 import GoogleIcon from '@/svg/google-icon';
 import Link from 'next/link';
