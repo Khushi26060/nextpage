@@ -141,12 +141,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
-<<<<<<< HEAD
 import axios from "axios";
 import { useRouter } from 'next/router';
-=======
-import { useRouter } from "next/router"; // Import useRouter
->>>>>>> d9b388c (src added)
 
 // Validation schema
 const schema = yup
@@ -158,11 +154,8 @@ const schema = yup
   .required();
 
 const RegisterForm = () => {
-<<<<<<< HEAD
   const [serverError, setServerError] = useState('');
 
-=======
->>>>>>> d9b388c (src added)
   const {
     register,
     handleSubmit,
@@ -171,7 +164,6 @@ const RegisterForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-<<<<<<< HEAD
   const onSubmit = async (data) => {
     try {
       // Send POST request to your API endpoint using Axios
@@ -193,37 +185,35 @@ const RegisterForm = () => {
     }
     // reset()
   };
-=======
->>>>>>> d9b388c (src added)
 
   const router = useRouter(); // Initialize the useRouter hook
 
-  const onSubmit = async (data) => {
-    console.log(data);
+  // const onSubmit = async (data) => {
+  //   console.log(data);
 
     // Simulate a successful registration response
-    // Replace this with actual API call if needed
-    try {
-      // Uncomment and replace with actual registration API call
-      // const response = await fetch(`${baseUrl}/register`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(data),
-      // });
-      // if (!response.ok) {
-      //   throw new Error('Registration failed');
-      // }
+  //   // Replace this with actual API call if needed
+  //   try {
+  //     // Uncomment and replace with actual registration API call
+  //     // const response = await fetch(`${baseUrl}/register`, {
+  //     //   method: 'POST',
+  //     //   headers: {
+  //     //     'Content-Type': 'application/json',
+  //     //   },
+  //     //   body: JSON.stringify(data),
+  //     // });
+  //     // if (!response.ok) {
+  //     //   throw new Error('Registration failed');
+  //     // }
 
-      // For now, just reset the form and redirect
-      reset();
-      router.push('/login'); // Redirect to login page
-    } catch (error) {
-      console.error('Error during registration:', error.message);
-      alert('Failed to register. Please try again.');
-    }
-  };
+  //     // For now, just reset the form and redirect
+  //     reset();
+  //     router.push('/login'); // Redirect to login page
+  //   } catch (error) {
+  //     console.error('Error during registration:', error.message);
+  //     alert('Failed to register. Please try again.');
+  //   }
+  // };
 
   // Password show & hide logic
   const [passwordType, setPasswordType] = useState("password");
@@ -237,17 +227,10 @@ const RegisterForm = () => {
         <div className="row">
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
-<<<<<<< HEAD
               <input
                 name="fullname"
                 {...register("fullname")}
                 className="inputText"
-=======
-              <input 
-                name="fullname"
-                {...register("fullname")}
-                className="inputText" 
->>>>>>> d9b388c (src added)
               />
               <span className="floating-label">Full Name</span>
               <p className="form_error">{errors.fullname?.message}</p>
@@ -266,11 +249,7 @@ const RegisterForm = () => {
           </div>
           <div className="col-12">
             <div className="mb-30">
-<<<<<<< HEAD
               <div className="postbox__comment-input">
-=======
-              <div className="postbox__comment-input"> 
->>>>>>> d9b388c (src added)
                 <input
                   id="myInput"
                   className="inputText password"
@@ -285,11 +264,7 @@ const RegisterForm = () => {
                       <EyeOff />
                     </span>
                   ) : (
-<<<<<<< HEAD
                     <span className="eye-off">
-=======
-                    <span className="eye-on">
->>>>>>> d9b388c (src added)
                       <EyeOn />
                     </span>
                   )}
