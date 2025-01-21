@@ -147,26 +147,29 @@ console.log("Logo URL:", logoSrc);
     return (
         <div className="footer-bottom-content tp-browser-bg-shape" style={{ backgroundImage: `url(${footerContent.bg_img})` }}>
             <div className="tp-browser-details-area pt-110 pb-30 p-relative">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-9 col-lg-9">
-                            <h3 className="tp-section-title-3">{footerContent.title}</h3>
-                        </div>
-                        <div className="col-xl-3 col-lg-3 text-lg-end text-start mb-40">
-                            <Link className="tp-btn-blue-lg tp-btn-hover" href="#">
-                                <span>Get A Call</span>
-                                <b></b>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="tp-hero-browser-wrapper footer-browser-item d-flex align-items-center">
-                                <Brwoser />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="container">
+            <div className="row align-items-center">
+    <div className="col-12 text-center">
+        <h3 className="tp-section-title-3">{footerContent.title}</h3>
+    </div>
+
+    <div className="col-12 col-lg-3 text-center text-lg-end mb-40">
+        <Link className="tp-btn-blue-lg tp-btn-hover" href="#">
+            <span>Get A Call</span>
+            <b></b>
+        </Link>
+    </div>
+</div>
+
+    <div className="row">
+        <div className="col-12">
+            <div className="tp-hero-browser-wrapper footer-browser-item d-flex align-items-center justify-content-center">
+                <Brwoser />
+            </div>
+        </div>
+    </div>
+</div>
+
             </div>
 
             <footer>
@@ -195,7 +198,7 @@ console.log("Logo URL:", logoSrc);
                                     <div className="tp-footer__widget footer-widget-3 footer-col-3-1">
                                         <Link href="/">
                                             <Image 
-                      src={logoSrc} 
+                      src={footer_logo} 
                       height={150} 
                       width={150} 
                       alt="logo" 

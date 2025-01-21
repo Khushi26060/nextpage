@@ -20,7 +20,7 @@ const BlogDetails = () => {
       const fetchBlogData = async () => {
         try {
           const response = await axios.get(`${baseUrl}/blogs/${id}`);
-          setBlogData(response.data);
+          setBlogData(response.data?.blog);
         } catch (error) {
           console.error('Error fetching blog data:', error);
           setError('Failed to load blog details.');
@@ -44,7 +44,7 @@ const BlogDetails = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <BreadcrumbSix />
+            <BreadcrumbSix blogData={blogData}/>
             <Banner />
             <PostboxArea blogData={blogData} /> {/* Pass the blogData */}
           </main>

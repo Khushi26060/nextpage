@@ -39,9 +39,6 @@ const setting = {
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-console.log("BASEURL =====>", baseUrl)
-
-
 const Temtenomial = () => {
     const [isDragged, setIsDragged] = useState(false);
     const [projectData, setProjectData] = useState([]);
@@ -50,14 +47,14 @@ const Temtenomial = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${baseUrl}/services`);
-                setProjectData(response.data)
-                console.log("print project data", response.data)
+                setProjectData(response.data);
+                console.log("print project data", response.data);
             } catch (error) {
-                console.error("Error fetching data", error)
+                console.error("Error fetching data", error);
             }
         }
-        fetchData()
-    }, [])
+        fetchData();
+    }, []);
 
     const handleSlideChange = () => {
         setIsDragged(true);
@@ -80,10 +77,9 @@ const Temtenomial = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12">
-                            <div className="tp-project__section-box wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".3s">
-                                <h3 className="tp-section-title">Explore the endless digital
-                                    opportunities for your brand with our full
-                                    range of solutions.
+                            <div className="tp-project__section-box wow tpfadeLeft text-center" data-wow-duration=".9s" data-wow-delay=".3s">
+                                <h3 className="tp-section-title">
+                                    Explore the endless digital opportunities for your brand with our full range of solutions.
                                 </h3>
                             </div>
                         </div>
@@ -98,8 +94,8 @@ const Temtenomial = () => {
                                     onSliderMove={handleSlideChange}
                                     onTransitionEnd={handleTransitionEnd}
                                     modules={[Navigation, Scrollbar]}
-                                    className={`swiper-container tp-project__slider-active ${isDragged ? "dragged" : ""
-                                        }`}>
+                                    className={`swiper-container tp-project__slider-active ${isDragged ? "dragged" : ""}`}
+                                >
                                     {projectData.map((item, i) =>
                                         <SwiperSlide
                                             key={i}
@@ -121,14 +117,13 @@ const Temtenomial = () => {
                                                             />
                                                         </div>
                                                     </Link>
-
                                                     <div className="tp-project__content">
                                                         <div className="tp-project__brand-icon">
                                                             <p>{item.name}</p>
                                                         </div>
                                                         <div className="tp-project__title-box">
                                                             <h4 className="tp-project__title-sm">
-                                                                <Link href={`/project-details/${item._id}`}>{item.title.slice(0,20)+'...'}</Link>
+                                                                <Link href={`/project-details/${item._id}`}>{item.title.slice(0, 20) + '...'}</Link>
                                                             </h4>
                                                             <p className="tp-project__description">
                                                                 {truncateText(item.description, 150)}

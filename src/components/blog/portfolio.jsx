@@ -8,7 +8,6 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Portfolio = () => {
   const { dataRef } = useMultipleAnime();
-  const [activeCategory, setActiveCategory] = useState("All");
   const [items, setItems] = useState([]);
   const originalItemsRef = useRef([]);
 
@@ -17,8 +16,8 @@ const Portfolio = () => {
       try {
         const response = await axios.get(`${baseUrl}/blogs`); // Adjust endpoint as per your API
         console.log("blog----->", response.data);
-        setItems(response.data);
-        originalItemsRef.current = response.data; // Store original data in useRef
+        setItems(response.data?.blogs);
+        originalItemsRef.current = response.data?.blogs; // Store original data in useRef
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -33,7 +32,6 @@ const Portfolio = () => {
   ];
 
   const filterItems = (cateItem) => {
-    setActiveCategory(cateItem);
 
     if (cateItem === "All") {
       setItems(originalItemsRef.current);
@@ -71,13 +69,13 @@ const Portfolio = () => {
         </div>
         <div className="row grid blog-grid-inner" ref={dataRef}>
           {items.map((item, i) => (
-            <div key={i} data-index={i} className="col-xl-4 col-lg-6 col-md-6 mb-30 grid-item cat1 cat4 cat3 cat5">
+            <div key={item._id} data-index={i} className="col-xl-4 col-lg-6 col-md-6 mb-30 grid-item cat1 cat4 cat3 cat5">
               <div className="tp-blog-item">
                 <div className="tp-blog-thumb fix">
-                  <Link href={`/blog-details/${item._id}`}> {/* Adjusted href to include dynamic ID */}
-                 
-                      <Image style={{ width: "100%", height: "200px" }} className="w-100" src={`${baseUrl}${item.image}`} alt="Portfolio Thumbnail" width={400} height={50} />
-                  
+                  <Link href={`/blog-details/${item._id}`}>
+
+                    <Image style={{ width: "100%", height: "200px" }} className="w-100" src={`${baseUrl}${item.image}`} alt="Portfolio Thumbnail" width={400} height={50} />
+
                   </Link>
                 </div>
                 <div className="tp-blog-content">
@@ -90,8 +88,8 @@ const Portfolio = () => {
                     </div>
                   </div>
                   <div className="tp-blog-title-box">
-                    <Link href={`/blog-details/${item._id}`}> {/* Adjusted href to include dynamic ID */}
-                       {item.title}
+                    <Link href={`/blog-details/${item._id}`}> 
+                      {item.title}
                     </Link>
                   </div>
                   <div className="tp-blog-author-info-box d-flex align-items-center">

@@ -16,7 +16,7 @@ const BlogGrid = () => {
         const fetchBlogData = async () => {
             try {
                 const response = await axios.get(`${baseUrl}/blogs`); // Adjust the endpoint as necessary
-                setGridSliderData(response.data); // Assuming response.data contains your blog entries
+                setGridSliderData(response.data?.blogs); // Assuming response.data contains your blog entries
             } catch (error) {
                 console.error("Error fetching blog data", error);
             }

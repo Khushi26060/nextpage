@@ -16,8 +16,7 @@ import slider_img_2_4 from "../../../../public/assets/img/integration/integratio
 const integration_content = {
     sub_title: "Integration",
 
-    title: <>Enhanced by these  <span>modern
-        technologies</span></>,
+    title: <> Enhanced by these modern technologies{" "}<span>we deliver cutting-edge solutions tailored to your brand's needs</span></>,
     int_title: <>Integrated with Your Favourite Apps</>,
     btn_text: "See all Integrations",
     bg_img: "/assets/img/integration/integration-bg.jpg"
@@ -123,58 +122,86 @@ const setting_two = {
 const IntegrationArea = ({ style_integraton }) => {
     return (
         <>
-            <div className="tp-integration-area pb-110 tp-integration-mlr">
-                <div className="container">
-                    <div className="row align-items-end tp-integration-section-space">
-                        <div className="col-xl-6 col-lg-8 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div className="tp-integration-section-box">
-                                {style_integraton ?
-                                    <>
-                                        <h5 className="tp-integration-subtitle">{sub_title}</h5>
-                                        <h3 className="tp-section-title-3">{int_title}</h3>
-                                    </>
-                                    :
-                                    <>
-                                        <h5 className="tp-integration-subtitle">{sub_title}</h5>
-                                        <h3 className="tp-section-title-3">{title}</h3>
-                                    </>
-                                }
-                            </div>
-                        </div>
-                        <div className="col-xl-6 col-lg-4 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div className="tp-integration-btn text-lg-end text-start">
-                                <Link className="tp-btn-blue-lg tp-btn-hover alt-color-black" href="/integrations">
-                                    <span>{btn_text}</span>
-                                    <b></b>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+  <div className="tp-integration-area pb-110 tp-integration-mlr mt-8">
+    <div className="container">
+      <div className="tp-integration-section-space grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        {/* Left Section */}
+        <div className="wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s">
+          <div className="tp-integration-section-box">
+            {style_integraton ? (
+              <>
+                <h5 className="tp-integration-subtitle text-center">{sub_title}</h5>
+                <h3 className="tp-section-title-3 text-center">{int_title}</h3>
+              </>
+            ) : (
+              <div className="flex justify-center">
+                <div className="text-center">
+                  <h5 className="tp-integration-subtitle mb-2">{sub_title}</h5>
+                  <h3 className="tp-section-title-3 mt-2">{title}</h3>
                 </div>
-                <div className="tp-integration-slider-wrapper pt-50 pb-50"
-                    style={{ backgroundImage: `url(${bg_img})` }}>
-                    <Slider {...setting_one} className="tp-integration-slider-active">
-                        {slider_one_data.map((item, i) =>
-                            <div key={i} className="tp-integration-slider-main slick-slide">
-                                <div className="tp-integration-slider-item">
-                                    <Image src={item} alt="theme-pure" />
-                                </div>
-                            </div>
-                        )}
-                    </Slider>
-                    <Slider {...setting_two} className="tp-integration-slider-active-2 carousel-rtl" dir="rtl">
-                        {slider_two_data.map((item, i) =>
-                            <div key={i} className="tp-integration-slider-main slick-slide">
-                                <div className="tp-integration-slider-item">
-                                    <Image src={item} alt="theme-pure" />
-                                </div>
-                            </div>
+              </div>
+            )}
+          </div>
+        </div>
+        {/* Right Section */}
+        <div
+          className="wow tpfadeRight flex justify-center lg:justify-end items-center"
+          data-wow-duration=".9s"
+          data-wow-delay=".7s"
+        >
+          <div className="tp-integration-btn">
+            <Link
+              className="tp-btn-blue-lg tp-btn-hover alt-color-black"
+              href="/integrations"
+            >
+              <span>{btn_text}</span>
+              <b></b>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                        )}
-                    </Slider>
-                </div>
+    {/* Slider Section */}
+    <div
+      className="tp-integration-slider-wrapper pt-50 pb-50 bg-cover bg-center mt-8"
+      style={{ backgroundImage: `url(${bg_img})` }}
+    >
+      <Slider
+        {...setting_one}
+        className="tp-integration-slider-active mx-auto max-w-[1200px]"
+      >
+        {slider_one_data.map((item, i) => (
+          <div
+            key={i}
+            className="tp-integration-slider-main slick-slide text-center"
+          >
+            <div className="tp-integration-slider-item">
+              <Image src={item} alt="theme-pure" />
             </div>
-        </>
+          </div>
+        ))}
+      </Slider>
+      <Slider
+        {...setting_two}
+        className="tp-integration-slider-active-2 carousel-rtl mx-auto max-w-[1200px]"
+        dir="rtl"
+      >
+        {slider_two_data.map((item, i) => (
+          <div
+            key={i}
+            className="tp-integration-slider-main slick-slide text-center"
+          >
+            <div className="tp-integration-slider-item">
+              <Image src={item} alt="theme-pure" />
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  </div>
+</>
+
     );
 };
 

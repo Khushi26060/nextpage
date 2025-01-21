@@ -58,9 +58,9 @@ const HeaderThree = () => {
                 <div className="header-bottom__logo">
                   <Link href="/">
                     <Image 
-                      src={logoSrc} 
-                      height={150} 
-                      width={150} 
+                      src={logo} 
+                      height={170} 
+                      width={170} 
                       alt="logo" 
                     />
                   </Link>
@@ -76,7 +76,7 @@ const HeaderThree = () => {
               <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
                 <div className="header-bottom__right d-flex align-items-center justify-content-end">
                   <div className="header-bottom__action">
-                    <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
+                    <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none " href="/register">
                       <span>Log In</span>
                     </Link>
                   </div>
