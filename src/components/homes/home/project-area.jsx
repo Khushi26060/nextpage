@@ -30,7 +30,6 @@ const setting = {
          slidesPerView: 1,
       },
    },
-
    scrollbar: {
       el: ".tp-scrollbar",
       clickable: true,
@@ -39,7 +38,7 @@ const setting = {
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-console.log("BASEURL =====>", baseUrl)
+console.log("BASEURL ===>", baseUrl)
 
 
  
@@ -51,14 +50,14 @@ const Temtenomial = () => {
       const fetchData = async () => {
          try {
             const response = await axios.get(`${baseUrl}/projects`);
-            setProjectData(response.data)
-            console.log("print project data", response.data)
+            setProjectData(response.data);
+            console.log("print project data", response.data);
          } catch (error) {
-            console.error("Error fetching data", error)
+            console.error("Error fetching data", error);
          }
-      }
-      fetchData()
-   }, [])
+      };
+      fetchData();
+   }, []);
 
    const handleSlideChange = () => {
       setIsDragged(true);
@@ -69,27 +68,26 @@ const Temtenomial = () => {
    };
 
    const truncateText = (text, maxLength = 100) => {
-      if (text.length > maxLength) {
-         return text.substring(0, maxLength) + "...";
-      }
-      return text;
+      return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
    };
 
    return (
       <>
          <div className="tp-project__area grey-bg pt-50 pb-110 fix">
             <div className="container">
+               {/* Header Section */}
                <div className="row">
-                  <div className="col-xl-12">
+                  <div className="col-xl-12 text-center">
                      <div className="tp-project__section-box wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".3s">
-                        <h3 className="tp-section-title">Explore the endless digital
-                           opportunities for your brand with our full
-                           range of solutions.
+                        <h3 className="tp-section-title">
+                           Explore the endless digital opportunities for your brand with our full range of solutions.
                         </h3>
                      </div>
                   </div>
                </div>
             </div>
+
+            {/* Slider Section */}
             <div className="container-fluid gx-0">
                <div className="row gx-0">
                   <div className="col-xl-12">
@@ -99,15 +97,10 @@ const Temtenomial = () => {
                            onSliderMove={handleSlideChange}
                            onTransitionEnd={handleTransitionEnd}
                            modules={[Navigation, Scrollbar]}
-                           className={`swiper-container tp-project__slider-active ${isDragged ? "dragged" : ""
-                              }`}>
-                           {projectData.map((item, i) =>
-                              <SwiperSlide
-                                 key={i}
-                                 className="swiper-slide wow tpfadeUp"
-                                 data-wow-duration=".9s"
-                                 data-wow-delay=".5s"
-                              >
+                           className={`swiper-container tp-project__slider-active ${isDragged ? "dragged" : ""}`}
+                        >
+                           {projectData.map((item, i) => (
+                              <SwiperSlide key={i} className="swiper-slide wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                                  <div className="tp-project__slider-wrapper">
                                     <div className="tp-project__item d-flex align-items-center">
                                        <Link href={`/project-details/${item._id}`}>
@@ -154,7 +147,7 @@ const Temtenomial = () => {
                                     </div>
                                  </div>
                               </SwiperSlide>
-                           )}
+                           ))}
                         </Swiper>
                         <div className="tp-scrollbar"></div>
                      </div>
