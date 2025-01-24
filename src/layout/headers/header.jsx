@@ -1,6 +1,6 @@
 import useSticky from '@/hooks/use-sticky';
 // Only use one import statement for Offcanvas. Choose the correct one based on your alias configuration
-import Offcanvas from '@/common/offcanvas.jsx';  // Keep this if you're using the alias setup
+// import Offcanvas from '@/common/offcanvas.jsx';  // Keep this if you're using the alias setup
 // import Offcanvas from '../../common/offcanvas';  // This would be the relative import, remove this line if you're using the alias
 
 import SearchPopup from '@/modals/search-popup';
