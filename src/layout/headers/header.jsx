@@ -1,5 +1,6 @@
 import useSticky from '@/hooks/use-sticky';
 import Offcanvas from '@/common/offcanvas';
+
 import SearchPopup from '@/modals/search-popup';
 import SearchIconTwo from '@/svg/search-icon-2';
 import UserIcon from '@/svg/user-icon';
